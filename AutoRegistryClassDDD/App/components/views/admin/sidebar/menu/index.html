@@ -1,0 +1,11 @@
+﻿<div class="sidebar-wrapper">
+    <ul class="nav">
+        <!-- with query, resulting in `/register?plan=private` -->
+        <router-link tag="li" class="nav-item" v-for="(menu, key, index) in menuItems" :to="{ path: menu.Link, query: {}}">
+            <a class="nav-link" href="#">
+                <i class="material-icons">{{menu.Icon}}</i>
+                <p>{{menu.Name}}</p>
+            </a>
+        </router-link>
+    </ul>
+</div>
