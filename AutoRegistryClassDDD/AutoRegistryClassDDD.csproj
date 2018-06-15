@@ -22,11 +22,32 @@
     <None Remove="App\components\views\admin\header\notification\index.ts" />
     <None Remove="App\components\views\admin\sidebar\menu\index.ts" />
     <None Remove="App\components\views\notfound\index.ts" />
-    <None Remove="App\models\common\base-model.ts" />
-    <None Remove="App\models\common\index.ts" />
-    <None Remove="App\models\menu\index.ts" />
-    <None Remove="App\models\menu\menu-model.ts" />
+    <None Remove="App\domain\entity\authorization\enum.ts" />
+    <None Remove="App\domain\entity\authorization\index.ts" />
+    <None Remove="App\domain\entity\authorization\request.ts" />
+    <None Remove="App\domain\entity\authorization\response.ts" />
+    <None Remove="App\domain\entity\authorization\setting.ts" />
+    <None Remove="App\domain\entity\common\base-model.ts" />
+    <None Remove="App\domain\entity\common\index.ts" />
+    <None Remove="App\domain\entity\grid\column-option.ts" />
+    <None Remove="App\domain\entity\grid\index.ts" />
+    <None Remove="App\domain\entity\grid\Pagination.ts" />
+    <None Remove="App\domain\entity\index.ts" />
+    <None Remove="App\domain\entity\menu\index.ts" />
+    <None Remove="App\domain\entity\menu\menu-model.ts" />
+    <None Remove="App\domain\services\authorization\authorization-request.ts" />
+    <None Remove="App\domain\services\authorization\authorization-response.ts" />
+    <None Remove="App\domain\services\authorization\index.ts" />
+    <None Remove="App\domain\services\authorization\request-handler.ts" />
+    <None Remove="App\domain\services\authorization\response-handler.ts" />
     <None Remove="App\routes\index.ts" />
+    <None Remove="App\service\authorization\authorization-service.ts" />
+    <None Remove="App\service\authorization\index.ts" />
+    <None Remove="App\service\common\base-service.ts" />
+    <None Remove="App\service\common\index.ts" />
+    <None Remove="App\service\index.ts" />
+    <None Remove="App\setting\app.setting.ts" />
+    <None Remove="App\store\index.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,7 +59,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="App\stores\" />
+    <Folder Include="App\views\" />
+    <Folder Include="App\utils\" />
+    <Folder Include="App\translations\" />
     <Folder Include="build\" />
     <Folder Include="config\" />
     <Folder Include="wwwroot\css\" />
@@ -64,11 +87,30 @@
     <TypeScriptCompile Include="App\components\views\admin\header\notification\index.ts" />
     <TypeScriptCompile Include="App\components\views\admin\sidebar\menu\index.ts" />
     <TypeScriptCompile Include="App\components\views\notfound\index.ts" />
-    <TypeScriptCompile Include="App\models\common\base-model.ts" />
-    <TypeScriptCompile Include="App\models\common\index.ts" />
-    <TypeScriptCompile Include="App\models\menu\index.ts" />
-    <TypeScriptCompile Include="App\models\menu\menu-model.ts" />
+    <TypeScriptCompile Include="App\domain\entity\authorization\enum.ts" />
+    <TypeScriptCompile Include="App\domain\entity\authorization\request.ts" />
+    <TypeScriptCompile Include="App\domain\entity\authorization\response.ts" />
+    <TypeScriptCompile Include="App\domain\entity\authorization\index.ts" />
+    <TypeScriptCompile Include="App\domain\entity\authorization\setting.ts" />
+    <TypeScriptCompile Include="App\domain\entity\common\base-model.ts" />
+    <TypeScriptCompile Include="App\domain\entity\common\index.ts" />
+    <TypeScriptCompile Include="App\domain\entity\grid\column-option.ts" />
+    <TypeScriptCompile Include="App\domain\entity\grid\index.ts" />
+    <TypeScriptCompile Include="App\domain\entity\grid\pagination.ts" />
+    <TypeScriptCompile Include="App\domain\entity\index.ts" />
+    <TypeScriptCompile Include="App\domain\entity\menu\index.ts" />
+    <TypeScriptCompile Include="App\domain\entity\menu\menu-model.ts" />
+    <TypeScriptCompile Include="App\domain\services\authorization\index.ts" />
+    <TypeScriptCompile Include="App\domain\services\authorization\request-handler.ts" />
+    <TypeScriptCompile Include="App\domain\services\authorization\response-handler.ts" />
     <TypeScriptCompile Include="App\routes\index.ts" />
+    <TypeScriptCompile Include="App\service\authorization\authorization-service.ts" />
+    <TypeScriptCompile Include="App\service\authorization\index.ts" />
+    <TypeScriptCompile Include="App\service\common\base-service.ts" />
+    <TypeScriptCompile Include="App\service\common\index.ts" />
+    <TypeScriptCompile Include="App\service\index.ts" />
+    <TypeScriptCompile Include="App\setting\app.setting.ts" />
+    <TypeScriptCompile Include="App\store\index.ts" />
   </ItemGroup>
 
 </Project>
