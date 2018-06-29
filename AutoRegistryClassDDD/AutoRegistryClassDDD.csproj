@@ -22,6 +22,9 @@
     <None Remove="App\components\views\admin\header\notification\index.ts" />
     <None Remove="App\components\views\admin\sidebar\menu\index.ts" />
     <None Remove="App\components\views\notfound\index.ts" />
+    <None Remove="App\domain\entity\account\index.ts" />
+    <None Remove="App\domain\entity\account\login.ts" />
+    <None Remove="App\domain\entity\account\registry.ts" />
     <None Remove="App\domain\entity\authorization\enum.ts" />
     <None Remove="App\domain\entity\authorization\index.ts" />
     <None Remove="App\domain\entity\authorization\request.ts" />
@@ -87,6 +90,9 @@
     <TypeScriptCompile Include="App\components\views\admin\header\notification\index.ts" />
     <TypeScriptCompile Include="App\components\views\admin\sidebar\menu\index.ts" />
     <TypeScriptCompile Include="App\components\views\notfound\index.ts" />
+    <TypeScriptCompile Include="App\domain\entity\account\index.ts" />
+    <TypeScriptCompile Include="App\domain\entity\account\login.ts" />
+    <TypeScriptCompile Include="App\domain\entity\account\registry.ts" />
     <TypeScriptCompile Include="App\domain\entity\authorization\enum.ts" />
     <TypeScriptCompile Include="App\domain\entity\authorization\request.ts" />
     <TypeScriptCompile Include="App\domain\entity\authorization\response.ts" />
