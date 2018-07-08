@@ -1,8 +1,8 @@
 ﻿import Vue from "vue";
 import VueRouter from "vue-router";
-
 import { Component } from "vue-property-decorator";
 import router from "./routes";
+import VeeValidate from "vee-validate"
 import App from "./components/app/AppComponent.vue";
 import { ValidationMixin } from "./mixin/validation.mixin";
 
@@ -39,7 +39,7 @@ const veeconfig = {
 };
 Vue.use(VeeValidate, veeconfig);
 
-
+Vue.use(VeeValidate);
 Vue.use(VueRouter);
 Vue.mixin(ValidationMixin);
 

@@ -1,4 +1,4 @@
-import { BaseModel } from "../index";
+import { BaseModel } from "./base-model";
 import { Pagination, ColumnOptions } from "./index";
 
 

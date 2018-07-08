@@ -1,5 +1,5 @@
 import { IFieldlValidation } from "./base";
-import { BaseModel } from "../entity/index";
+import { BaseModel } from "./base-model";
 
 export interface IFieldlValidation {
     BindingField?: string;

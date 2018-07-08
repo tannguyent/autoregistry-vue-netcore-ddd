@@ -1,4 +1,4 @@
-﻿import { BaseModel } from "../index";
+﻿import { BaseModel } from "./base-model";
 
 export interface IColumnOptions {
     Index?: number;
