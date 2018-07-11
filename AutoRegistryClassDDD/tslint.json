@@ -1,11 +1,13 @@
 {
   "defaultSeverity": "error",
-  "extends": ["tslint:recommended"],
+  "extends": [ "tslint:recommended" ],
+  "lib": [ "dom", "es6", "es2015", "es2015.promise" ],
+  "module": "esnext",
   "jsRules": {},
   "rules": {
-    "quotemark": [true, "single"],
-    "indent": [true],
-    "interface-name": [false],
+    "quotemark": [ true, "single" ],
+    "indent": [ true ],
+    "interface-name": [ false ],
     "arrow-parens": false,
     "object-literal-sort-keys": false
   },
