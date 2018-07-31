@@ -47,7 +47,8 @@
     "vue-loader": "13.3.0",
     "vue-style-loader": "^4.1.0",
     "webpack": "^3.3.0",
-    "webpack-hot-middleware": "^2.22.2"
+    "webpack-hot-middleware": "^2.22.2",
+    "bootstrap": "4.1.3"
   },
   "name": "autoregistryclass.com",
   "private": true,

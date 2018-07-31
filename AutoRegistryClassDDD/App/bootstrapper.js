@@ -17,20 +17,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import Vue from "vue";
 import VueRouter from "vue-router";
 import { Component } from "vue-property-decorator";
-import router from "./routes";
-import App from "./components/app/AppComponent.vue";
-// #region registry css
-//import Element from 'element-ui'
-//import locale from 'element-ui/lib/locale/lang/en'
-//import 'element-ui/lib/theme-chalk/index.css'
-//import BootstrapVue from 'bootstrap-vue'
-//import 'bootstrap/dist/css/bootstrap.css'
-//import 'bootstrap-vue/dist/bootstrap-vue.css'
-//import Vuetify from "vuetify";
-//Vue.use(Vuetify);
-//Vue.use(Element, { locale });
-//Vue.use(BootstrapVue);
-// #endregion 
+import router from "./routes/route";
+import store from "./store";
+import App from "./app";
 Vue.use(VueRouter);
 var RootApp = /** @class */ (function (_super) {
     __extends(RootApp, _super);
@@ -48,6 +37,7 @@ var RootApp = /** @class */ (function (_super) {
     return RootApp;
 }(Vue));
 export var rootApp = new RootApp({
-    router: router
+    router: router,
+    store: store
 }).$mount("#app");
 //# sourceMappingURL=bootstrapper.js.map
