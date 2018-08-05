@@ -92,7 +92,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, bundleOutputDir),
         filename: "[name].js",
-        publicPath: "dist/"
+        publicPath: "/dist/"
     },
     devtool: "#eval-source-map"
 };

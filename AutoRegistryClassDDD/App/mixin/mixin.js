@@ -15,31 +15,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import Vue from "vue";
-import VueRouter from "vue-router";
-import { Component } from "vue-property-decorator";
-import router from "./routes/route";
-import store from "./store";
-import App from "./app";
-import AxiosPlugin from "./plugin/http-request";
-Vue.use(VueRouter);
-Vue.use(AxiosPlugin);
-var RootApp = /** @class */ (function (_super) {
-    __extends(RootApp, _super);
-    function RootApp() {
+import Component from "vue-class-component";
+var MixinComponent = /** @class */ (function (_super) {
+    __extends(MixinComponent, _super);
+    function MixinComponent() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    RootApp = __decorate([
-        Component({
-            template: "<App/>",
-            components: {
-                App: App
-            }
-        })
-    ], RootApp);
-    return RootApp;
+    MixinComponent.prototype.created = function () {
+        console.log('MIXIN CREATED');
+    };
+    MixinComponent.prototype.detroyed = function () {
+        console.log('MIXIN DESTROYED');
+    };
+    MixinComponent.prototype.$mixinFunction = function () {
+    };
+    MixinComponent = __decorate([
+        Component
+    ], MixinComponent);
+    return MixinComponent;
 }(Vue));
-export var rootApp = new RootApp({
-    router: router,
-    store: store
-}).$mount("#app");
-//# sourceMappingURL=bootstrapper.js.map
+export default MixinComponent;
+//# sourceMappingURL=mixin.js.map

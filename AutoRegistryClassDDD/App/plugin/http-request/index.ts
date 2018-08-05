@@ -1,12 +1,13 @@
 ﻿import _Vue from "vue";
 import Axios from "axios";
+import { AxiosPluginOptions } from "./plugin.conf";
 
-// export type PluginFunction<T> = (Vue: typeof _Vue, options?: T) => void;
-export function AxiosPlugin<AxiosPlugOptions>(Vue: typeof _Vue, options?: AxiosPluginOptions): void {
-    // do stuff with options
-    Vue.prototype.$http = Axios;
+const AxiosPlugin = {
+    install(Vue: typeof _Vue, options?: AxiosPluginOptions) {
+        Vue.prototype.$http = Axios;
+        console.log('axios plugin is installing');
+    }
 }
 
-export class AxiosPluginOptions {
-    // add stuff
-}
+export default AxiosPlugin;
+

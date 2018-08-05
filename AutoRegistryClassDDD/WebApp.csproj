@@ -30,6 +30,7 @@
     <None Remove="App\layout\admin\index.ts" />
     <None Remove="App\layout\un-authorized\index.ts" />
     <None Remove="App\layout\notfound\index.ts" />
+    <None Remove="App\mixin\mixin.ts" />
     <None Remove="App\module\agenda\model\product-model.ts" />
     <None Remove="App\module\agenda\store\action.ts" />
     <None Remove="App\module\agenda\store\getter.ts" />
@@ -43,6 +44,7 @@
     <None Remove="App\module\property\view\detail-view\index.ts" />
     <None Remove="App\module\property\view\edit-view\index.ts" />
     <None Remove="App\module\property\view\list-view\index.ts" />
+    <None Remove="App\plugin\http-request\plugin.conf.ts" />
     <None Remove="App\routes\index.ts" />
     <None Remove="App\routes\route.ts" />
     <None Remove="App\store\actions.ts" />
@@ -69,7 +71,7 @@
     <Folder Include="App\module\authorization\service\" />
     <Folder Include="App\module\authorization\store\" />
     <Folder Include="App\module\property\service\" />
-    <Folder Include="App\mixin\" />
+    <Folder Include="App\plugin\grid\source\components\grid\" />
     <Folder Include="App\service-woker\" />
     <Folder Include="App\setting\" />
     <Folder Include="App\translations\" />
@@ -85,6 +87,7 @@
     <TypeScriptCompile Include="App\layout\admin\index.ts" />
     <TypeScriptCompile Include="App\layout\un-authorized\index.ts" />
     <TypeScriptCompile Include="App\layout\notfound\index.ts" />
+    <TypeScriptCompile Include="App\mixin\mixin.ts" />
     <TypeScriptCompile Include="App\module\authorization\index.ts" />
     <TypeScriptCompile Include="App\module\property\index.ts" />
     <TypeScriptCompile Include="App\module\property\model\property-model.ts" />
@@ -98,6 +101,7 @@
     <TypeScriptCompile Include="App\module\property\view\detail-view\index.ts" />
     <TypeScriptCompile Include="App\module\property\view\edit-view\index.ts" />
     <TypeScriptCompile Include="App\module\property\view\list-view\index.ts" />
+    <TypeScriptCompile Include="App\plugin\http-request\plugin.conf.ts" />
     <TypeScriptCompile Include="App\routes\route.ts" />
     <TypeScriptCompile Include="App\store\actions.ts" />
     <TypeScriptCompile Include="App\store\getters.ts" />

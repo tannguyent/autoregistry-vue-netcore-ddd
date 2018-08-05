@@ -46,12 +46,14 @@ var routes = [
         children: [
             {
                 path: 'property',
+                alias: '',
                 component: PropertyModuleComponent,
                 name: 'property module',
                 meta: { description: 'Property' },
                 children: [
                     {
                         path: 'list',
+                        alias: '',
                         component: PropertyListViewComponent,
                         name: 'list view',
                         meta: { description: 'list view' },
