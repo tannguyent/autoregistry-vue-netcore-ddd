@@ -29,21 +29,22 @@ var PropertyModuleComponent = /** @class */ (function (_super) {
      * */
     PropertyModuleComponent.prototype.created = function () {
         var store = this.$store;
-        if (!(store && store.state && store.state[name])) {
-            console.log("registry module: " + name);
+        if (!(store && store.state && store.state[namespace])) {
+            console.log("registry module: " + namespace);
             this.$store.registerModule(namespace, PropertyStoreModule);
         }
         else {
-            console.log("reusing module: " + name);
+            console.log("reusing module: " + namespace);
         }
     };
     /**
      * VUE EVENT: DETROY
      * unregister a module
      * */
-    PropertyModuleComponent.prototype.detroyed = function () {
+    PropertyModuleComponent.prototype.beforeDestroy = function () {
         var store = this.$store;
         store.unregisterModule(namespace);
+        console.log("unregister module: " + namespace);
     };
     PropertyModuleComponent = __decorate([
         Component({

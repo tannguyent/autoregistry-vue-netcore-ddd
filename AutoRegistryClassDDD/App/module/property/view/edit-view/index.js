@@ -16,18 +16,48 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
-var PropertyDetailViewComponent = /** @class */ (function (_super) {
-    __extends(PropertyDetailViewComponent, _super);
-    function PropertyDetailViewComponent() {
+import { PropertyEditStoreModule } from './store/index';
+var namespace = 'property-edit';
+var PropertyEditViewComponent = /** @class */ (function (_super) {
+    __extends(PropertyEditViewComponent, _super);
+    function PropertyEditViewComponent() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    PropertyDetailViewComponent = __decorate([
+    Object.defineProperty(PropertyEditViewComponent.prototype, "id", {
+        get: function () { return this.$route.params.id; },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+    * VUE EVENT: CREATED
+    * ADD VUEX STORE MODULE BY MANUAL
+    * */
+    PropertyEditViewComponent.prototype.created = function () {
+        var store = this.$store;
+        if (!(store && store.state && store.state[namespace])) {
+            console.log("registry module: " + namespace);
+            this.$store.registerModule(namespace, PropertyEditStoreModule);
+        }
+        else {
+            console.log("reusing module: " + namespace);
+        }
+    };
+    /**
+     * VUE EVENT: beforeDestroy
+     * unregister a module
+     * */
+    PropertyEditViewComponent.prototype.beforeDestroy = function () {
+        var store = this.$store;
+        store.unregisterModule(namespace);
+        console.log("unregister module: " + namespace);
+    };
+    PropertyEditViewComponent = __decorate([
         Component({
             template: require('./index.html'),
             components: {}
         })
-    ], PropertyDetailViewComponent);
-    return PropertyDetailViewComponent;
+    ], PropertyEditViewComponent);
+    return PropertyEditViewComponent;
 }(Vue));
-export default PropertyDetailViewComponent;
+export default PropertyEditViewComponent;
 //# sourceMappingURL=index.js.map

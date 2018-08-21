@@ -16,18 +16,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
-var PropertyEditViewComponent = /** @class */ (function (_super) {
-    __extends(PropertyEditViewComponent, _super);
-    function PropertyEditViewComponent() {
+var PropertyDetailViewComponent = /** @class */ (function (_super) {
+    __extends(PropertyDetailViewComponent, _super);
+    function PropertyDetailViewComponent() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    PropertyEditViewComponent = __decorate([
+    PropertyDetailViewComponent = __decorate([
         Component({
             template: require('./index.html'),
             components: {}
         })
-    ], PropertyEditViewComponent);
-    return PropertyEditViewComponent;
+    ], PropertyDetailViewComponent);
+    return PropertyDetailViewComponent;
 }(Vue));
-export default PropertyEditViewComponent;
+export default PropertyDetailViewComponent;
 //# sourceMappingURL=index.js.map

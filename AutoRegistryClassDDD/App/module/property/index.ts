@@ -16,11 +16,11 @@ export default class PropertyModuleComponent extends Vue {
      * */
     created() {
         const store = this.$store;
-        if (!(store && store.state && store.state[name])) {
-            console.log(`registry module: ${name}`);
+        if (!(store && store.state && store.state[namespace])) {
+            console.log(`registry module: ${namespace}`);
             this.$store.registerModule(namespace, PropertyStoreModule)
         } else {
-            console.log(`reusing module: ${name}`);
+            console.log(`reusing module: ${namespace}`);
         }
     }
 
@@ -28,8 +28,9 @@ export default class PropertyModuleComponent extends Vue {
      * VUE EVENT: DETROY
      * unregister a module
      * */
-    detroyed() {
+    beforeDestroy() {
         const store = this.$store;
-        store.unregisterModule(namespace); 
+        store.unregisterModule(namespace);
+        console.log(`unregister module: ${namespace}`);
     }
 }

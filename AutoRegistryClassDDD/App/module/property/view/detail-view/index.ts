@@ -6,5 +6,5 @@ import { Component } from 'vue-property-decorator';
     components: {
     }
 })
-export default class PropertyEditViewComponent extends Vue {
+export default class PropertyDetailViewComponent extends Vue {
 }

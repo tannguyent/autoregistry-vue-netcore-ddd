@@ -10,6 +10,17 @@ import AxiosPlugin from "./plugin/http-request";
 Vue.use(VueRouter);
 Vue.use(AxiosPlugin);
 
+import dataContextPlugin from "./plugin/dataContext";
+Vue.use(dataContextPlugin);
+/*
+    CURRENTLY I HAD COMMENT THIS COMPONENT BECAUSE IT MAKE OUR APPLICATION IS MEMORY LEAK
+    MEMORY LEAK
+    https://github.com/OneWayTech/vue2-datatable/issues/142
+*/
+import Datatable from 'vue2-datatable-component'
+
+Vue.use(Datatable);
+
 @Component({
     template: "<App/>",
     components: {

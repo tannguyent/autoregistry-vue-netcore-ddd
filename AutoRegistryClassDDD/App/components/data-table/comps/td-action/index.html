@@ -1,0 +1,12 @@
+﻿<div class="d-block">
+    <router-link tag="button" :to="'/admin/property/detail/' + row.Id" type="button" class="btn btn-primary">
+        <i class="fa fa-eye"></i> View
+    </router-link>
+    <router-link tag="button" :to="'/admin/property/edit/' + row.Id" type="button" class="btn btn-success">
+        <i class="fa fa-pencil"></i> Edit
+    </router-link>
+
+    <button type="button" class="btn btn-danger">
+        <i class="fa fa-trash"></i> Delete
+    </button>
+</div>

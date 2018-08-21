@@ -1,5 +1,11 @@
-﻿<div class="wrapper">
-    this is edit view
+﻿<div>
+    <ul class="nav nav-tabs">
+        <router-link tag="li" :to="'/admin/property/edit/' + id +'/general'" class="nav-item">
+            <a class="nav-link active" data-toggle="tab" role="tab" aria-selected="true">GENERAL</a>
+        </router-link>
+        <router-link tag="li" :to="'/admin/property/edit/' + id + '/document'" class="nav-item">
+            <a class="nav-link active" data-toggle="tab" role="tab" aria-selected="true">DOCUMENT</a>
+        </router-link>
+    </ul>
+    <router-view></router-view>
 </div>
-
-

@@ -16,15 +16,72 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
+import PropertySidebarComponent from './side-bar';
+var DataTableComponent = function (resolve) { return require(['../../../../components/data-table'], resolve); };
 var PropertyListViewComponent = /** @class */ (function (_super) {
     __extends(PropertyListViewComponent, _super);
     function PropertyListViewComponent() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    Object.defineProperty(PropertyListViewComponent.prototype, "tableConfig", {
+        get: function () {
+            return {
+                columns: [
+                    {
+                        title: "ID",
+                        field: 'Id',
+                        sortable: true,
+                        colStyle: { width: '200px' }
+                    },
+                    {
+                        title: "Reference",
+                        field: 'Reference',
+                        sortable: true,
+                    },
+                    {
+                        title: 'Operation',
+                        tdComp: 'TdActionComponent',
+                        colStyle: { width: '300px' },
+                        fixed: 'right',
+                    }
+                ],
+                hasPagination: true
+            };
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(PropertyListViewComponent.prototype, "tableSource", {
+        get: function () {
+            return [
+                {
+                    Id: "1",
+                    Reference: 'Reference',
+                },
+                {
+                    Id: "2",
+                    Reference: 'Reference',
+                },
+                {
+                    Id: "3",
+                    Reference: 'Reference',
+                },
+                {
+                    Id: "4",
+                    Reference: 'Reference',
+                }
+            ];
+        },
+        enumerable: true,
+        configurable: true
+    });
     PropertyListViewComponent = __decorate([
         Component({
             template: require('./index.html'),
-            components: {}
+            components: {
+                'side-bar-component': PropertySidebarComponent,
+                'data-table': DataTableComponent
+            }
         })
     ], PropertyListViewComponent);
     return PropertyListViewComponent;

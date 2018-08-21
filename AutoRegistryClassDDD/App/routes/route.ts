@@ -9,10 +9,25 @@ const AdminLayoutComponent = resolve => require(['../layout/admin'], resolve);
 
 const NotFoundComponent = resolve => require(['../layout/notfound'], resolve);
 
+/**
+ * MODULE: PROPERTY
+ * @param resolve
+ */
 const PropertyModuleComponent = resolve => require(['../module/property'], resolve);
 const PropertyListViewComponent = resolve => require(['../module/property/view/list-view'], resolve);
 const PropertyDetailViewComponent = resolve => require(['../module/property/view/detail-view'], resolve);
 const PropertyEditViewComponent = resolve => require(['../module/property/view/edit-view'], resolve);
+const PropertyEditGenaralComponent = resolve => require(['../module/property/view/edit-view/comps/general'], resolve);
+const PropertyEditDocumentComponent = resolve => require(['../module/property/view/edit-view/comps/document'], resolve);
+
+/**
+ * MODULE: AGENDA
+ * @param resolve
+ */
+const AgendaModuleComponent = resolve => require(['../module/agenda'], resolve);
+const AgendaListViewComponent = resolve => require(['../module/agenda/view/list-view'], resolve);
+const AgendaDetailViewComponent = resolve => require(['../module/agenda/view/detail-view'], resolve);
+const AgendaEditViewComponent = resolve => require(['../module/agenda/view/edit-view'], resolve);
 
 const routes = [
     {
@@ -64,15 +79,57 @@ const routes = [
                         meta: { description: 'list view' },
                     },
                     {
-                        path: 'detail',
+                        path: 'detail/:id',
                         component: PropertyDetailViewComponent,
                         name: 'detail view',
                         meta: { description: 'detail' },
                     },
                     {
-                        path: 'edit',
+                        path: 'edit/:id',
                         component: PropertyEditViewComponent,
                         name: 'edit view',
+                        meta: { description: 'edit' },
+                        children: [
+                            {
+                                path: 'general',
+                                alias: '',
+                                component: PropertyEditGenaralComponent,
+                                name: 'property general tab view',
+                                meta: { description: 'property general tab view' },
+                            },
+                            {
+                                path: 'document',
+                                component: PropertyEditDocumentComponent,
+                                name: 'property document tab view',
+                                meta: { description: 'property document tab view' },
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                path: 'agenda',
+                component: AgendaModuleComponent,
+                name: 'agenda module',
+                meta: { description: 'agenda' },
+                children: [
+                    {
+                        path: 'list',
+                        alias: '',
+                        component: AgendaListViewComponent,
+                        name: 'agenda list view',
+                        meta: { description: 'list view' },
+                    },
+                    {
+                        path: 'detail/:id',
+                        component: AgendaDetailViewComponent,
+                        name: 'agenda detail view',
+                        meta: { description: 'detail' },
+                    },
+                    {
+                        path: 'edit/:id',
+                        component: AgendaEditViewComponent,
+                        name: 'agenda edit view',
                         meta: { description: 'edit' },
                     }
                 ]

@@ -1,7 +1,33 @@
+// Custom.scss
+// Option B: Include parts of Bootstrap
+
+// custom variable
+
+/* === Import template variables === */
+@import "./_custom-variables.scss";
+
 // Required
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins";
+@import "node_modules/bootstrap/scss/utilities";
 
+// grid layout to reponsive
+@import "node_modules/bootstrap/scss/grid";
 
 // Optional
+@import "node_modules/bootstrap/scss/reboot";
+@import "node_modules/bootstrap/scss/type";
+
+// header
+@import "node_modules/bootstrap/scss/nav";
+@import "node_modules/bootstrap/scss/navbar";
+
+// card
+@import "node_modules/bootstrap/scss/card";
+
+// table
+@import "node_modules/bootstrap/scss/tables";
+
+// buttons
+@import "node_modules/bootstrap/scss/buttons";
