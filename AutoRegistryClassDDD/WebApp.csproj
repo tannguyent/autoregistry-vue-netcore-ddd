@@ -8,21 +8,25 @@
   <ItemGroup>
     <Compile Remove="App\module\agenda\component\**" />
     <Compile Remove="App\module\agenda\route\**" />
+    <Compile Remove="App\plugin\grid\source\components\**" />
     <Compile Remove="App\service\**" />
     <Compile Remove="App\views\**" />
     <Compile Remove="wwwroot\js\**" />
     <Content Remove="App\module\agenda\component\**" />
     <Content Remove="App\module\agenda\route\**" />
+    <Content Remove="App\plugin\grid\source\components\**" />
     <Content Remove="App\service\**" />
     <Content Remove="App\views\**" />
     <Content Remove="wwwroot\js\**" />
     <EmbeddedResource Remove="App\module\agenda\component\**" />
     <EmbeddedResource Remove="App\module\agenda\route\**" />
+    <EmbeddedResource Remove="App\plugin\grid\source\components\**" />
     <EmbeddedResource Remove="App\service\**" />
     <EmbeddedResource Remove="App\views\**" />
     <EmbeddedResource Remove="wwwroot\js\**" />
     <None Remove="App\module\agenda\component\**" />
     <None Remove="App\module\agenda\route\**" />
+    <None Remove="App\plugin\grid\source\components\**" />
     <None Remove="App\service\**" />
     <None Remove="App\views\**" />
     <None Remove="wwwroot\js\**" />
@@ -50,6 +54,7 @@
     <None Remove="App\module\agenda\view\list-view\index.ts" />
     <None Remove="App\module\agenda\view\list-view\side-bar\index.ts" />
     <None Remove="App\module\authorization\index.ts" />
+    <None Remove="App\module\authorization\view\contact\index.ts" />
     <None Remove="App\module\authorization\view\registry\index.ts" />
     <None Remove="App\module\authorization\view\login\index.ts" />
     <None Remove="App\module\property\index.ts" />
@@ -78,7 +83,6 @@
     <None Remove="App\module\property\view\edit-view\store\state.ts" />
     <None Remove="App\module\property\view\list-view\index.ts" />
     <None Remove="App\module\property\view\list-view\side-bar\index.ts" />
-    <None Remove="App\plugin\dataContext\plugin.conf.ts" />
     <None Remove="App\plugin\http-request\plugin.conf.ts" />
     <None Remove="App\routes\index.ts" />
     <None Remove="App\routes\route.ts" />
@@ -87,9 +91,13 @@
     <None Remove="App\store\index.ts" />
     <None Remove="App\store\mutations.ts" />
     <None Remove="App\store\root-state.ts" />
+    <None Remove="index.html" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="index.html">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Include="webpack.config.js" />
   </ItemGroup>
 
@@ -101,14 +109,11 @@
     <Folder Include="App\module\authorization\model\" />
     <Folder Include="App\module\authorization\service\" />
     <Folder Include="App\module\authorization\store\" />
-    <Folder Include="App\plugin\grid\source\components\grid\" />
-    <Folder Include="App\service-woker\" />
     <Folder Include="App\setting\" />
     <Folder Include="App\translations\" />
     <Folder Include="App\utils\" />
-    <Folder Include="build\" />
     <Folder Include="config\" />
-    <Folder Include="scss\components\" />
+    <Folder Include="wwwroot\assets\img\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -133,6 +138,7 @@
     <TypeScriptCompile Include="App\module\agenda\view\list-view\index.ts" />
     <TypeScriptCompile Include="App\module\agenda\view\list-view\side-bar\index.ts" />
     <TypeScriptCompile Include="App\module\authorization\index.ts" />
+    <TypeScriptCompile Include="App\module\authorization\view\contact\index.ts" />
     <TypeScriptCompile Include="App\module\property\index.ts" />
     <TypeScriptCompile Include="App\module\property\model\property-model.ts" />
     <TypeScriptCompile Include="App\module\property\store\index.ts" />
@@ -166,7 +172,6 @@
     <TypeScriptCompile Include="App\module\property\view\edit-view\store\state.ts" />
     <TypeScriptCompile Include="App\module\property\view\list-view\index.ts" />
     <TypeScriptCompile Include="App\module\property\view\list-view\side-bar\index.ts" />
-    <TypeScriptCompile Include="App\plugin\dataContext\plugin.conf.ts" />
     <TypeScriptCompile Include="App\plugin\http-request\plugin.conf.ts" />
     <TypeScriptCompile Include="App\routes\route.ts" />
     <TypeScriptCompile Include="App\store\actions.ts" />

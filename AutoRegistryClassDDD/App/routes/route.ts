@@ -4,6 +4,7 @@ const UnAuthorizedLayoutComponent = resolve => require(['../layout/un-authorized
 const AuthorizationModuleComponent = resolve => require(['../module/authorization'], resolve);
 const LoginViewComponent = resolve => require(['../module/authorization/view/login'], resolve);
 const RegistryViewComponent = resolve => require(['../module/authorization/view/registry'], resolve);
+const ContactViewComponent = resolve => require(['../module/authorization/view/contact'], resolve);
 
 const AdminLayoutComponent = resolve => require(['../layout/admin'], resolve);
 
@@ -54,6 +55,12 @@ const routes = [
                         component: RegistryViewComponent,
                         name: 'registry view',
                         meta: { description: 'Registry' },
+                    },
+                    {
+                        path: 'contact',
+                        component: ContactViewComponent,
+                        name: 'contact view',
+                        meta: { description: 'contact' },
                     }
                 ]
             },

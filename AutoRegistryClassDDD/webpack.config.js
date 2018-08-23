@@ -1,6 +1,13 @@
-﻿var path = require("path");
-var webpack = require("webpack");
-const bundleOutputDir = "./wwwroot/dist";
+﻿'use strict'
+
+const fs = require('fs')
+const path = require("path");
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const bundleOutputDir = "./wwwroot";
+
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 
 module.exports = {
     context: __dirname,
@@ -94,6 +101,26 @@ module.exports = {
         filename: "[name].js",
         publicPath: "/dist/"
     },
+    plugins: [
+        // service worker caching
+        new SWPrecacheWebpackPlugin({
+            cacheId: 'my-vue-app',
+            filename: 'service-worker.js',
+            staticFileGlobs: ['dist/**/*.{js,html,css}'],
+            minify: true,
+            stripPrefix: 'dist/'
+        }),
+        // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
+        // https://github.com/ampedandwired/html-webpack-plugin
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: 'index.html',
+            inject: true,
+            serviceWorkerLoader: `<script>${fs.readFileSync(path.join(__dirname, './service-worker.js'), 'utf-8')}</script>`
+        }),
+    ],
     devtool: "#eval-source-map"
 };
 

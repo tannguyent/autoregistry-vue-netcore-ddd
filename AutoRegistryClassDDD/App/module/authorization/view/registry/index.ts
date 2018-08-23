@@ -6,5 +6,5 @@ import { Component } from 'vue-property-decorator';
     components: {
     }
 })
-export default class LoginContainerComponent extends Vue {
+export default class LoginViewComponent extends Vue {
 }

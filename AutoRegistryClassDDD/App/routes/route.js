@@ -3,6 +3,7 @@ var UnAuthorizedLayoutComponent = function (resolve) { return require(['../layou
 var AuthorizationModuleComponent = function (resolve) { return require(['../module/authorization'], resolve); };
 var LoginViewComponent = function (resolve) { return require(['../module/authorization/view/login'], resolve); };
 var RegistryViewComponent = function (resolve) { return require(['../module/authorization/view/registry'], resolve); };
+var ContactViewComponent = function (resolve) { return require(['../module/authorization/view/contact'], resolve); };
 var AdminLayoutComponent = function (resolve) { return require(['../layout/admin'], resolve); };
 var NotFoundComponent = function (resolve) { return require(['../layout/notfound'], resolve); };
 /**
@@ -48,6 +49,12 @@ var routes = [
                         component: RegistryViewComponent,
                         name: 'registry view',
                         meta: { description: 'Registry' },
+                    },
+                    {
+                        path: 'contact',
+                        component: ContactViewComponent,
+                        name: 'contact view',
+                        meta: { description: 'contact' },
                     }
                 ]
             },

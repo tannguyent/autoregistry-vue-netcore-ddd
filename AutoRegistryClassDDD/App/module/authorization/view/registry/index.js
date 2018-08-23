@@ -16,18 +16,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
-var LoginContainerComponent = /** @class */ (function (_super) {
-    __extends(LoginContainerComponent, _super);
-    function LoginContainerComponent() {
+var LoginViewComponent = /** @class */ (function (_super) {
+    __extends(LoginViewComponent, _super);
+    function LoginViewComponent() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    LoginContainerComponent = __decorate([
+    LoginViewComponent = __decorate([
         Component({
             template: require('./index.html'),
             components: {}
         })
-    ], LoginContainerComponent);
-    return LoginContainerComponent;
+    ], LoginViewComponent);
+    return LoginViewComponent;
 }(Vue));
-export default LoginContainerComponent;
+export default LoginViewComponent;
 //# sourceMappingURL=index.js.map

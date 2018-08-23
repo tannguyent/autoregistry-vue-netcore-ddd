@@ -23,8 +23,6 @@ import App from "./app";
 import AxiosPlugin from "./plugin/http-request";
 Vue.use(VueRouter);
 Vue.use(AxiosPlugin);
-import dataContextPlugin from "./plugin/dataContext";
-Vue.use(dataContextPlugin);
 /*
     CURRENTLY I HAD COMMENT THIS COMPONENT BECAUSE IT MAKE OUR APPLICATION IS MEMORY LEAK
     MEMORY LEAK
@@ -51,4 +49,12 @@ export var rootApp = new RootApp({
     router: router,
     store: store
 }).$mount("#app");
+//// service worker
+//if ('serviceWorker' in navigator) {
+//    navigator.serviceWorker.register('/service-worker.js', { scope: './' }).then(function (registration) {
+//        console.log('ServiceWorker registration successful!');
+//    }).catch(function (err) {
+//        console.log('ServiceWorker registration failed: ', err);
+//    });
+//}
 //# sourceMappingURL=bootstrapper.js.map
