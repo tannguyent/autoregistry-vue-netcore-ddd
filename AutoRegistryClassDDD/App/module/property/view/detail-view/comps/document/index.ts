@@ -1,17 +1,15 @@
 ﻿import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
-import { PropertyViewStoreModule } from './store/index';
+import { PropertyDocumentStoreModule } from './store';
 
-const namespace: string = 'property-detail';
+const namespace: string = 'property-document';
 
 @Component({
     template: require('./index.html'),
     components: {
     }
 })
-export default class PropertyDetailViewComponent extends Vue {
-
-    get id() { return this.$route.params.id; }
+export default class PropertyEditlDocumentComponent extends Vue {
     /**
     * VUE EVENT: CREATED
     * ADD VUEX STORE MODULE BY MANUAL
@@ -20,14 +18,14 @@ export default class PropertyDetailViewComponent extends Vue {
         const store = this.$store;
         if (!(store && store.state && store.state[namespace])) {
             console.log(`registry module: ${namespace}`);
-            this.$store.registerModule(namespace, PropertyViewStoreModule)
+            this.$store.registerModule(namespace, PropertyDocumentStoreModule)
         } else {
             console.log(`reusing module: ${namespace}`);
         }
     }
 
     /**
-     * VUE EVENT: beforeDestroy
+     * VUE EVENT: DETROY
      * unregister a module
      * */
     beforeDestroy() {
@@ -35,18 +33,4 @@ export default class PropertyDetailViewComponent extends Vue {
         store.unregisterModule(namespace);
         console.log(`unregister module: ${namespace}`);
     }
-
-
-    currentTabName: string = "general";
-    get currentTabComponent(): any {
-        debugger
-        this.currentTabName;
-        return () => import(`./comps/${this.currentTabName}/index`);
-    }
-    changeTab(tabName: string) {
-        debugger
-        this.currentTabName = tabName;
-    }
-
-
 }
