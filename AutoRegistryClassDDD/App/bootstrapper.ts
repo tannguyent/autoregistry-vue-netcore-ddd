@@ -6,7 +6,14 @@ import store from "./store";
 import App from "./app";
 import AxiosPlugin from "./plugin/http-request";
 
+// import main css
 import "../scss/main.scss"
+
+// import service woker
+import runtime from 'serviceworker-webpack-plugin/lib/runtime';
+if ('serviceWorker' in navigator) {
+  const registration = runtime.register();
+}
 
 Vue.use(VueRouter);
 Vue.use(AxiosPlugin);

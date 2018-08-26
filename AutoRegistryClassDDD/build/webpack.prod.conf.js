@@ -7,6 +7,7 @@ const webpack = require('webpack')
 const config = require('../config')
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const env = config.build.env
@@ -96,7 +97,11 @@ const webpackConfig = merge(baseWebpackConfig, {
       from: path.resolve(__dirname, '../static'),
       to: config.build.assetsSubDirectory,
       ignore: ['.*']
-    }])
+    }]),
+    
+    new ServiceWorkerWebpackPlugin({
+      entry: path.join(__dirname, 'service-worker-prod.js'),
+    }),
   ]
 })
 

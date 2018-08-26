@@ -7,6 +7,8 @@ const webpack = require('webpack')
 const config = require('../config')
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
+
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -70,6 +72,10 @@ module.exports = merge(baseWebpackConfig, {
       template: '././index.html',
       inject: true
     }),
-    new FriendlyErrorsPlugin()
+    new FriendlyErrorsPlugin(),
+
+    new ServiceWorkerWebpackPlugin({
+      entry: path.join(__dirname, 'service-worker-dev.js'),
+    }),
   ]
 })
