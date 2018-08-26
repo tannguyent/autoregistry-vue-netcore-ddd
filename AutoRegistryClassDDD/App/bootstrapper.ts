@@ -6,6 +6,8 @@ import store from "./store";
 import App from "./app";
 import AxiosPlugin from "./plugin/http-request";
 
+import "../scss/main.scss"
+
 Vue.use(VueRouter);
 Vue.use(AxiosPlugin);
 
@@ -14,8 +16,8 @@ Vue.use(AxiosPlugin);
     MEMORY LEAK
     https://github.com/OneWayTech/vue2-datatable/issues/142
 */
-import Datatable from 'vue2-datatable-component'
-Vue.use(Datatable);
+//import Datatable from 'vue2-datatable-component'
+//Vue.use(Datatable);
 
 @Component({
     template: "<App/>",
