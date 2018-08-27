@@ -4,6 +4,8 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { VueLoaderPlugin } = require('vue-loader')
+
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
 }
@@ -90,6 +92,6 @@ module.exports = {
             config.build.assetsPublicPath : config.dev.assetsPublicPath
     },
     plugins: [
-        // new VueLoaderPlugin(),
+        new VueLoaderPlugin()
     ]
 };
