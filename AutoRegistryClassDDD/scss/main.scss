@@ -1,11 +1,8 @@
 @import "./_custom-variables.scss";
 @import "node_modules/bootstrap/scss/bootstrap";
+@import "./mixins/_sidebar.scss";
 @import "./components/_footer.scss";
 @import "./components/_sidebar.scss";
-html,
-body {
-    height: 100%;
-}
 
 html,
 body {

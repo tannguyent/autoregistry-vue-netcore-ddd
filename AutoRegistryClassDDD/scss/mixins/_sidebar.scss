@@ -1,0 +1,41 @@
+// CSS image replacement
+@mixin sidebar-variant($background-color, $text-color) {
+    // stylelint-disable-next-line font-family-no-missing-generic-family-keyword
+    background-color: darken($background-color, 20% ) !important;
+    color:$text-color;
+    #sidebar .active{
+        background-color: tint($background-color, 10% ) !important;
+    }
+
+    .sidebar-header{
+        background-color: darken($background-color, 20% ) !important;
+    }
+
+    ul {
+        &.components {
+            &.has-boder{
+                border-bottom: 1px solid tint($background-color, 10% ) !important;
+            }
+        }
+        li {
+            a {
+                &:hover {
+                    color: $text-color;
+                    background: desaturate($background-color, 30% ) !important;
+                }
+            }
+            &.active>a {
+                color: $text-color;
+                background: desaturate($background-color, 30% ) !important;
+            }
+        }
+
+        a {
+            &[aria-expanded="true"] {
+                color: $text-color;
+                background: desaturate($background-color, 30% ) !important;
+            }
+        }
+    }
+}
+  

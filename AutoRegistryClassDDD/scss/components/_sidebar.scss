@@ -37,10 +37,7 @@ a {
 }
 
 #sidebar {
-    min-width: 250px;
     max-width: 100%;
-    background: #7386D5;
-    color: #fff;
     transition: all 0.3s;
     left: 0;
     top: 0;
@@ -88,7 +85,6 @@ a {
     }
     .sidebar-header {
         padding: 20px;
-        background: #6d7fcc;
         strong {
             display: none;
             font-size: 1.8em;
@@ -97,34 +93,24 @@ a {
     ul {
         &.components {
             padding: 20px 0;
-            border-bottom: 1px solid #47748b;
         }
         li {
             a {
                 padding: 10px;
                 font-size: 1.1em;
                 display: block;
-                &:hover {
-                    color: #7386D5;
-                    background: #fff;
-                }
+                &:hover {}
                 i {
                     margin-right: 10px;
                 }
             }
-            &.active>a {
-                color: #fff;
-                background: #6d7fcc;
-            }
+            &.active>a {}
         }
     }
 }
 
 a {
-    &[aria-expanded="true"] {
-        color: #fff;
-        background: #6d7fcc;
-    }
+    &[aria-expanded="true"] {}
     &[data-toggle="collapse"] {
         position: relative;
     }
@@ -136,12 +122,6 @@ a {
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
-}
-
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #6d7fcc;
 }
 
 /* ---------------------------------------------------
@@ -196,5 +176,13 @@ ul ul a {
     }
     #sidebarCollapse span {
         display: none;
+    }
+}
+
+// SIDE BAR THEME
+@each $color,
+$value in $theme-colors {
+    .sidebar-#{$color} {
+        @include sidebar-variant($value, $white);
     }
 }
