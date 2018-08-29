@@ -5,7 +5,9 @@
       "dom",
       "es6",
       "es2015",
-      "es2015.promise"
+      "es2015.promise",
+      "es2015.collection",
+      "es2015.iterable"
     ],
     "module": "esnext",
     "moduleResolution": "node",
@@ -14,7 +16,12 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "strict": false
+    "strict": false,
+    // https://blog.mariusschulz.com/2017/06/30/typescript-2-3-downlevel-iteration-for-es3-es5
+    "downlevelIteration": true,
+    "importHelpers": true,
+    //https://blog.mariusschulz.com/2016/09/27/typescript-2-0-non-nullable-types
+    "strictNullChecks": true
   },
   "exclude": [
     "node_modules"
