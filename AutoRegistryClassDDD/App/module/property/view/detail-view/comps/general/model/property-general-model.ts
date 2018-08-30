@@ -2,16 +2,15 @@
  * INTERFACE: PROPERTY DOCUMENT MODEL
  * */
 export interface IPropertyGeneralModel {
-    Id?: string;
+    Id: string | null;
 }
 
 /**
  * IMPLEMENTED: PROPERTY DOCUMENT MODEL
  * */
 export class PropertyGeneralModel {
-    Id?: string;
+    Id: string | null;
     constructor(option?: IPropertyGeneralModel) {
-        if (option == null) option = {};
-        this.Id = option.Id || null;
+        this.Id = null;
     }
 }

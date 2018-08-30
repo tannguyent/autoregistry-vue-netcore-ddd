@@ -4,17 +4,16 @@
  * VUEX: STATE FOR PROPERTY DOCUMENT
  * */
 export interface IPropertyEditState {
-    property?: IPropertyModel;
+    property: IPropertyModel | null;
 }
 
 /**
  * VUEX: STATE
  * */
 export class PropertyEditState implements IPropertyEditState {
-    property?: IPropertyModel;
-    constructor(option?: IPropertyEditState) {
-        if (option == null) option = {};
-        this.property = option.property || null;
+    property: IPropertyModel| null;
+    constructor() {
+        this.property = null;
 
     }
 }

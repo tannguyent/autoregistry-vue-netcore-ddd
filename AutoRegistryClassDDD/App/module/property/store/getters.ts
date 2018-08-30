@@ -10,7 +10,7 @@ export const getters: GetterTree<IPropertyState, IRootState> = {
      * GETTER: CURRENT PROPERTY
      * @param state
      */
-    property(state): IPropertyModel {
+    property(state): IPropertyModel | null {
         return state.property;
     }
 };

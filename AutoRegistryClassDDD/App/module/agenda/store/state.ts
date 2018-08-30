@@ -5,17 +5,16 @@
  * VUEX: STATE
  * */
 export interface IAgendaState {
-    agenda?: IAgendaModel;
+    agenda: IAgendaModel| null;
 }
 
 /**
  * VUEX: STATE
  * */
 export class PropertyState implements IAgendaState {
-    agenda?: IAgendaModel;
-    constructor(option?: IAgendaState) {
-        if (option == null) option = {};
-        this.agenda = option.agenda || null;
+    agenda: IAgendaModel | null;
+    constructor() {
+        this.agenda =  null;
 
     }
 }

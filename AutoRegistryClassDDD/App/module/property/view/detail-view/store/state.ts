@@ -4,17 +4,16 @@
  * VUEX: STATE FOR PROPERTY DOCUMENT
  * */
 export interface IPropertyViewState {
-    property?: IPropertyModel;
+    property: IPropertyModel| null;
 }
 
 /**
  * VUEX: STATE
  * */
 export class PropertyViewState implements IPropertyViewState {
-    property?: IPropertyModel;
+    property: IPropertyModel | null;
     constructor(option?: IPropertyViewState) {
-        if (option == null) option = {};
-        this.property = option.property || null;
+        this.property =  null;
 
     }
 }

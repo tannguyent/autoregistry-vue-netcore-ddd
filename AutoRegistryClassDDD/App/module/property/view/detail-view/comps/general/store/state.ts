@@ -4,17 +4,16 @@
  * VUEX: STATE
  * */
 export interface IPropertyGeneralState {
-    general?: IPropertyGeneralModel;
+    general: IPropertyGeneralModel | null;
 }
 
 /**
  * VUEX: STATE
  * */
 export class PropertyGeneralState implements IPropertyGeneralState {
-    general?: IPropertyGeneralModel;
-    constructor(option?: IPropertyGeneralState) {
-        if (option == null) option = {};
-        this.general = option.general || null;
+    general: IPropertyGeneralModel| null;
+    constructor() {
+        this.general =  null;
 
     }
 }

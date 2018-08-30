@@ -2,19 +2,18 @@
  * INTERFACE: AGENDA MODEL
  * */
 export interface IAgendaModel {
-    Id?: string;
-    Reference?: string;
+    Id: string | null;
+    Reference: string| null;
 }
 
 /**
  * IMPLEMENTED: AGENDA MODEL
  * */
 export class AgendaModel {
-    Id?: string;
-    Reference?: string;
-    constructor(option?: IAgendaModel) {
-        if (option == null) option = {};
-        this.Id = option.Id || null;
-        this.Reference = option.Reference || null;
+    Id: string| null;
+    Reference: string| null;
+    constructor() {
+        this.Id =  null;
+        this.Reference =  null;
     }
 }
