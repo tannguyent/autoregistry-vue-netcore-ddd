@@ -18,10 +18,18 @@ var sendToServerHandler = function (messages, context) {
 	console.log('error message is sending to server ....')
 };
 
+// YOU CAN ALSO STORED ERROR TO VUEX
+var storeErrorMessageHandler = function (messages, context) {
+};
+
+// ATTACHE HANDLER
 Logger.setHandler(function (messages, context) {
 	consoleHandler(messages, context);
 	sendToServerHandler(messages, context);
+	storeErrorMessageHandler(messages, context);
 });
+
+
 
 
 // you can set only in production env show the error-log

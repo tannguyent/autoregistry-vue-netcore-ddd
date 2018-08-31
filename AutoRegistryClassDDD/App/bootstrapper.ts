@@ -15,6 +15,7 @@ if ("serviceWorker" in navigator) {
   const registration = runtime.register();
 }
 
+
 /** Logger */
 import "./vue-logger-conf"
 

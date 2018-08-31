@@ -9,6 +9,8 @@
     "npm": ">= 3.0.0"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "js-logger": "^1.4.1",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1"
   },
