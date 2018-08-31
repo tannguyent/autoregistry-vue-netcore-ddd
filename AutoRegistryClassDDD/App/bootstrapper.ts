@@ -24,6 +24,12 @@ import "./vue-logger-conf"
 Vue.config.productionTip = false;
 
 
+// VueRx can use libraries other than RxJS
+// that implement the observable interface.
+import { Observable, Subscription, Subject } from 'rxjs'
+import VueRx from 'vue-rx';
+Vue.use(VueRx, { Observable, Subscription, Subject })
+
 /*
     CURRENTLY I HAD COMMENT THIS COMPONENT BECAUSE IT MAKE OUR APPLICATION IS MEMORY LEAK
     MEMORY LEAK

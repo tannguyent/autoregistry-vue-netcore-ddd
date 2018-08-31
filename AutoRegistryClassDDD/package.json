@@ -9,8 +9,6 @@
     "npm": ">= 3.0.0"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
-    "js-logger": "^1.4.1",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1"
   },
@@ -73,7 +71,11 @@
     "webpack-merge": "4.1.4",
     "popper.js": "1.14.4",
     "serviceworker-webpack-plugin": "^1.0.1",
-    "jquery": "3.3.1"
+    "jquery": "3.3.1",
+    "babel-polyfill": "^6.26.0",
+    "js-logger": "^1.4.1",
+    "rxjs": "^6.3.0",
+    "vue-rx": "^6.0.1"
   },
   "name": "autoregistryclass.com",
   "private": true,
