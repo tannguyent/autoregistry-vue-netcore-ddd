@@ -1,5 +1,7 @@
 ﻿import Vue from "vue";
 import { Component } from "vue-property-decorator";
+import { pluck, debounceTime, distinctUntilChanged } from "rxjs/operators";
+import Logger from "js-logger"
 
 @Component({
 	template: require("./index.html"),
@@ -7,15 +9,27 @@ import { Component } from "vue-property-decorator";
 })
 export default class SearchbarComponent extends Vue {
 	//#region data
-	searchValue: string = "";
+	keySearch: string = "";
 	//#endregion
 
 	created() {
-		this.$watchAsObservable('searchValue')
-			.pluck('newValue')
+		this.$watchAsObservable('keySearch')
+			.pipe(
+				// DELAY 
+				debounceTime(1500),
+				// map resource
+				pluck('newValue'),
+				// IGNORE SUBSCRIBE IF SAME VALUE
+				distinctUntilChanged()
+			)
 			.subscribe(
-				(q) => {
-					this.$router.replace({ name: 'SearchResult', query: { q } })
+				(value: string) => {
+					Logger.debug('search value', value)
+					this.$router.push({ path: `/admin/search-result/${value}` });
+				},
+				err => Logger.error(err),
+				() => {
+					Logger.debug('complete')
 				}
 			)
 	}

@@ -35,40 +35,42 @@ export default class SearchResultModuleComponent extends Vue {
     beforeDestroy() { }
 
     // subscription by Rxjs
-    subscriptions() {
-        const $q = this.$watchAsObservable("q", { immediate: true })
-            .pluck("newValue")
-            .do(() => {
-                this.typing = true;
-            })
-            .debounceTime(1500)
-            .do(() => {
-                this.typing = false;
-            })
-            .filter(q => !!q);
-        const $page = this.$watchAsObservable("page", { immediate: true }).pluck(
-            "newValue"
-        );
-        return {
-            data: Observable.combineLatest($q, $page, (q, page) => ({ q, page }))
-                .debounceTime(50) // prevent double request when query and page change at same time
-                .do(() => {
-                    // reset error and show loading
-                    this.err = "";
-                    this.loading = true;
-                })
-                .do(({ q }) => {
-                    this.title = q;
-                })
-                .flatMap(({ q, page }) =>
-                    API.search(q, page).catch(err => {
-                        this.error = err.message || "something went wrong :P";
-                        return Observable.of(null);
-                    })
-                )
-                .do(() => {
-                    this.loading = false;
-                })
-        };
+    get subscriptions(): any {
+        console.log('subscription is called...')
+        return "";
+        // const $q = this.$watchAsObservable("q", { immediate: true })
+        //     .pluck("newValue")
+        //     .do(() => {
+        //         this.typing = true;
+        //     })
+        //     .debounceTime(1500)
+        //     .do(() => {
+        //         this.typing = false;
+        //     })
+        //     .filter(q => !!q);
+        // const $page = this.$watchAsObservable("page", { immediate: true }).pluck(
+        //     "newValue"
+        // );
+        // return {
+        //     data: Observable.combineLatest($q, $page, (q, page) => ({ q, page }))
+        //         .debounceTime(50) // prevent double request when query and page change at same time
+        //         .do(() => {
+        //             reset error and show loading
+        //             this.err = "";
+        //             this.loading = true;
+        //         })
+        //         .do(({ q }) => {
+        //             this.title = q;
+        //         })
+        //         .flatMap(({ q, page }) =>
+        //             API.search(q, page).catch(err => {
+        //                 this.error = err.message || "something went wrong :P";
+        //                 return Observable.of(null);
+        //             })
+        //         )
+        //         .do(() => {
+        //             this.loading = false;
+        //         })
+        // };
     }
 }

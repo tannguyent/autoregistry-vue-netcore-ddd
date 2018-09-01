@@ -24,13 +24,21 @@ var storeErrorMessageHandler = function (messages, context) {
 
 // ATTACHE HANDLER
 Logger.setHandler(function (messages, context) {
-	consoleHandler(messages, context);
-	sendToServerHandler(messages, context);
-	storeErrorMessageHandler(messages, context);
+	switch(context.level){
+		case Logger.DEBUG:{
+			consoleHandler(messages, context);	
+			break;
+		}
+		case Logger.ERROR:{
+			consoleHandler(messages, context);	
+			sendToServerHandler(messages, context);
+			break;
+		}
+		default:{
+			consoleHandler(messages, context);	
+		}
+	}
 });
-
-
-
 
 // you can set only in production env show the error-log
 //if (process.env.NODE_ENV === "production") {

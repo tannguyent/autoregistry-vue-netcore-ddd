@@ -30,6 +30,11 @@ const AgendaListViewComponent = resolve => require(['../module/agenda/view/list-
 const AgendaDetailViewComponent = resolve => require(['../module/agenda/view/detail-view'], resolve);
 const AgendaEditViewComponent = resolve => require(['../module/agenda/view/edit-view'], resolve);
 
+/**
+ * MODULE: SEARCH RESULT
+ */
+const SearchResultModuleComponent = resolve => require(['../module/search'], resolve);
+
 const routes = [
     {
         name: 'home',
@@ -140,6 +145,12 @@ const routes = [
                         meta: { description: 'edit' },
                     }
                 ]
+            },
+            {
+                path: 'search-result/:query',
+                component: SearchResultModuleComponent,
+                name: 'search-result-module',
+                meta: { description: 'search' },
             }
         ]
     },
