@@ -2,6 +2,8 @@
 import { Component, Prop } from "vue-property-decorator";
 import { Observable } from "rxjs";
 const namespace: string = "searchResult";
+import * as API from './services/api'
+import { debounceTime, pluck, distinctUntilChanged } from 'rxjs/operators';
 
 //// NOTE: some time we do not need store something into the vuex
 //// JUST: ONE WAY TO BIND
@@ -12,7 +14,7 @@ const namespace: string = "searchResult";
 export default class SearchResultModuleComponent extends Vue {
     //#region Prop
     @Prop()
-    query: string
+    query: string;
     //#endregion
 
     //#region data
@@ -26,51 +28,36 @@ export default class SearchResultModuleComponent extends Vue {
      * VUE EVENT: CREATED
      * ADD VUEX STORE MODULE BY MANUAL
      * */
-    created() { }
+    created() {
+        this.$watchAsObservable('query')
+            .pipe(
+                // DELAY 
+                debounceTime(1500),
+                // map resource
+                pluck('newValue'),
+                // IGNORE SUBSCRIBE IF SAME VALUE
+                distinctUntilChanged()
+            )
+            .subscribe(
+                (value: string) => {
+                    API.search(this.$httpManager.createRequest(), value, 1)
+                },
+                err => { },
+                () => {
+                    { }
+                }
+            )
+
+    }
 
     /**
      * VUE EVENT: DETROY
      * unregister a module
      * */
-    beforeDestroy() { }
-
-    // subscription by Rxjs
-    get subscriptions(): any {
-        console.log('subscription is called...')
-        return "";
-        // const $q = this.$watchAsObservable("q", { immediate: true })
-        //     .pluck("newValue")
-        //     .do(() => {
-        //         this.typing = true;
-        //     })
-        //     .debounceTime(1500)
-        //     .do(() => {
-        //         this.typing = false;
-        //     })
-        //     .filter(q => !!q);
-        // const $page = this.$watchAsObservable("page", { immediate: true }).pluck(
-        //     "newValue"
-        // );
-        // return {
-        //     data: Observable.combineLatest($q, $page, (q, page) => ({ q, page }))
-        //         .debounceTime(50) // prevent double request when query and page change at same time
-        //         .do(() => {
-        //             reset error and show loading
-        //             this.err = "";
-        //             this.loading = true;
-        //         })
-        //         .do(({ q }) => {
-        //             this.title = q;
-        //         })
-        //         .flatMap(({ q, page }) =>
-        //             API.search(q, page).catch(err => {
-        //                 this.error = err.message || "something went wrong :P";
-        //                 return Observable.of(null);
-        //             })
-        //         )
-        //         .do(() => {
-        //             this.loading = false;
-        //         })
-        // };
+    beforeDestroy() { 
+        this.$httpManager.cancelAllRequest();
     }
+
+
+
 }

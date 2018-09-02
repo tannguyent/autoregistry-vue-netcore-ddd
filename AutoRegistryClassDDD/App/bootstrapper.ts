@@ -4,9 +4,10 @@ import { Component } from "vue-property-decorator";
 import router from "./routes/route";
 import store from "./store";
 import App from "./app";
-import AxiosPlugin from "./plugin/http-request";
 
 Vue.use(VueRouter);
+
+import AxiosPlugin from "./plugin/http-request";
 Vue.use(AxiosPlugin);
 
 /** SERVICE WORKER */
@@ -17,8 +18,8 @@ if ("serviceWorker" in navigator) {
 
 
 /** Logger */
-import "./vue-logger-conf"
-
+import LggerPlugin from './plugin/logger';
+Vue.use(LggerPlugin)
 
 /** Other Vue configs */
 Vue.config.productionTip = false;

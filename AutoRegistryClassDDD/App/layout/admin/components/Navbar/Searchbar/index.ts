@@ -1,7 +1,6 @@
 ﻿import Vue from "vue";
 import { Component } from "vue-property-decorator";
 import { pluck, debounceTime, distinctUntilChanged } from "rxjs/operators";
-import Logger from "js-logger"
 
 @Component({
 	template: require("./index.html"),
@@ -24,12 +23,12 @@ export default class SearchbarComponent extends Vue {
 			)
 			.subscribe(
 				(value: string) => {
-					Logger.debug('search value', value)
+					this.$logger.debug('search value', value)
 					this.$router.push({ path: `/admin/search-result/${value}` });
 				},
-				err => Logger.error(err),
+				err => this.$logger.error(err),
 				() => {
-					Logger.debug('complete')
+					this.$logger.debug('complete')
 				}
 			)
 	}

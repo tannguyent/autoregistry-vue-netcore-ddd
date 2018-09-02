@@ -150,7 +150,10 @@ const routes = [
                 path: 'search-result/:query',
                 component: SearchResultModuleComponent,
                 name: 'search-result-module',
-                meta: { description: 'search' },
+                props: true,
+                meta: {
+                    description: 'search'
+                },
             }
         ]
     },
