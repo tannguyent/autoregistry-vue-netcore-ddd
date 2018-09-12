@@ -4,9 +4,6 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const {
-    VueLoaderPlugin
-} = require('vue-loader')
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
@@ -17,7 +14,7 @@ module.exports = {
             /** https://github.com/vuejs-templates/webpack/issues/474  */
             'babel-polyfill',
             './App/bootstrapper.ts'
-        ]
+        ],
     },
     module: {
         rules: [{
@@ -37,10 +34,10 @@ module.exports = {
                     "sass-loader"
                 ],
             },
-            {
-                test: /\.vue$/,
-                loader: "vue-loader"
-            },
+            // {
+            //     test: /\.vue$/,
+            //     loader: "vue-loader"
+            // },
             {
                 test: /\.js$/,
                 loader: "babel-loader",
@@ -94,10 +91,8 @@ module.exports = {
     output: {
         path: config.build.assetsRoot,
         filename: '[name].[hash].bundle.js',
+        chunkFilename: '[name].[hash].bundle.js',
         publicPath: process.env.NODE_ENV === 'production' ?
             config.build.assetsPublicPath : config.dev.assetsPublicPath
-    },
-    plugins: [
-        new VueLoaderPlugin()
-    ]
+    }
 };

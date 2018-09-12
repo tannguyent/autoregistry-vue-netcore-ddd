@@ -26,7 +26,8 @@ var optimization = {
       vendors: {
         test: /[\\/]node_modules[\\/]/,
         chunks: "all",
-        priority: -10
+        priority: -10,
+        reuseExistingChunk: true
       },
       default: {
         minChunks: 2,
@@ -52,13 +53,11 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 })
 
 module.exports = merge(baseWebpackConfig, {
+  mode: "development",
   // cheap-module-eval-source-map is faster for development
   devtool: '#cheap-module-eval-source-map',
   optimization: optimization,
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': config.dev.env
-    }),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),

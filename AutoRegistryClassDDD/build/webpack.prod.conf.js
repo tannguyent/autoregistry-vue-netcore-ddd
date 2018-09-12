@@ -58,6 +58,7 @@ var optimization = {
 
 
 const webpackConfig = merge(baseWebpackConfig, {
+  mode: "production",
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   optimization: optimization,
   output: {
@@ -66,10 +67,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     chunkFilename: utils.assetsPath('[id].[chunkhash].js')
   },
   plugins: [
-    // http://vuejs.github.io/vue-loader/en/workflow/production.html
-    new webpack.DefinePlugin({
-      'process.env': env
-    }),
+   
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',
       chunkFilename: "[id].[hash].css"
