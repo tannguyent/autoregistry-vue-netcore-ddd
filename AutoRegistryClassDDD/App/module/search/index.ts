@@ -40,6 +40,7 @@ export default class SearchResultModuleComponent extends Vue {
             )
             .subscribe(
                 (value: string) => {
+                    console.log('searc......')
                     API.search(this.$httpManager.createRequest(), value, 1)
                 },
                 err => { },
