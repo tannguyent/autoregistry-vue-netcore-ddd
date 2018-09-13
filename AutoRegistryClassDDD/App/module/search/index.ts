@@ -29,6 +29,8 @@ export default class SearchResultModuleComponent extends Vue {
      * ADD VUEX STORE MODULE BY MANUAL
      * */
     created() {
+        
+
         this.$watchAsObservable('query')
             .pipe(
                 // DELAY 
@@ -40,7 +42,11 @@ export default class SearchResultModuleComponent extends Vue {
             )
             .subscribe(
                 (value: string) => {
-                    console.log('searc......')
+                    if (navigator.serviceWorker.controller) {
+                        console.log('send message clear caches')
+                        navigator.serviceWorker.controller.postMessage({'command': 'clearCaches'});
+                    }
+
                     //API.search(this.$httpManager.createRequest(), value, 1)
                     let request = this.$httpManager.createRequest()
                     request.get('https://jsonplaceholder.typicode.com/todos/1')

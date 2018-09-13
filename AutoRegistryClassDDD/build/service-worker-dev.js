@@ -4,10 +4,21 @@
 // file that will precache your site's local assets.
 // See https://github.com/facebookincubator/create-react-app/issues/2272#issuecomment-302832432
 
-self.addEventListener('install', () => self.skipWaiting());
+self.addEventListener('install', (event) => self.skipWaiting());
 
-self.addEventListener('activate', () => {
+self.addEventListener('activate', (event) => {
     console.log('service worker is activating....')
+
+    event.waitUntil(
+        caches.keys().then(function (cacheNames) {
+            return Promise.all(
+                cacheNames.map(function (cacheName) {
+                    return caches.delete(cacheName);
+                })
+            );
+        })
+    );
+
     self.clients.matchAll({
         type: 'window'
     }).then(windowClients => {
@@ -27,7 +38,7 @@ self.addEventListener('fetch', function (event) {
         .then(function (response) {
             // Cache hit - return response
             if (response) {
-                console.log('response exit in cache' ,  response)
+                console.log('response exit in cache', response)
                 return response;
             }
 
@@ -40,8 +51,8 @@ self.addEventListener('fetch', function (event) {
             return fetch(fetchRequest).then(
                 function (response) {
                     // Check if we received a valid response
-                    if (!response || response.status !== 200 ) {
-                        console.log('response error' ,  response)
+                    if (!response || response.status !== 200) {
+                        console.log('response error', response)
                         return response;
                     }
 
@@ -53,7 +64,7 @@ self.addEventListener('fetch', function (event) {
 
                     caches.open('vue-serviceworker')
                         .then(function (cache) {
-                            console.log('push data to cache' ,  event.request)
+                            console.log('push data to cache', event.request)
                             cache.put(event.request, responseToCache);
                         });
 
@@ -62,4 +73,20 @@ self.addEventListener('fetch', function (event) {
             );
         })
     );
+});
+
+self.addEventListener('message', function (event) {
+    console.log('recevied message');
+    if (event.data.command == 'clearCaches') {
+        console.log('recevied message: clear caches');
+        caches.open('vue-serviceworker')
+            .then(function (cache) {
+                cache.keys()
+                    .then(function (keys) {
+                        keys.map(function (cacheName) {
+                            return cache.delete(cacheName);
+                        })
+                    });
+            });
+    }
 });
