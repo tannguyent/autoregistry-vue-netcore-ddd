@@ -11,10 +11,20 @@ function resolve(dir) {
 module.exports = {
     entry: {
         app: [
-            /** https://github.com/vuejs-templates/webpack/issues/474  */
-            'babel-polyfill',
             './App/bootstrapper.ts'
         ],
+        vendor: [
+             /** https://github.com/vuejs-templates/webpack/issues/474  */
+            'babel-polyfill',
+            'vue',
+            'vuex',
+            'vue-rx',
+            'vue-router',
+            'vue-i18n',
+            'axios',
+            'vue-class-component',
+            'vue-property-decorator',
+        ]
     },
     module: {
         rules: [{

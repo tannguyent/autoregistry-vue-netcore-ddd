@@ -27,7 +27,7 @@ var optimization = {
         test: /[\\/]node_modules[\\/]/,
         chunks: "all",
         priority: -10,
-        reuseExistingChunk: true
+		reuseExistingChunk: true,
       },
       default: {
         minChunks: 2,

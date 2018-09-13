@@ -8,11 +8,58 @@ self.addEventListener('install', () => self.skipWaiting());
 
 self.addEventListener('activate', () => {
     console.log('service worker is activating....')
-    self.clients.matchAll({ type: 'window' }).then(windowClients => {
+    self.clients.matchAll({
+        type: 'window'
+    }).then(windowClients => {
         for (let windowClient of windowClients) {
             // Force open pages to refresh, so that they have a chance to load the
             // fresh navigation response from the local dev server.
             windowClient.navigate(windowClient.url);
         }
     });
+});
+
+
+// listen for outgoing network request
+self.addEventListener('fetch', function (event) {
+    event.respondWith(
+        caches.match(event.request)
+        .then(function (response) {
+            // Cache hit - return response
+            if (response) {
+                console.log('response exit in cache' ,  response)
+                return response;
+            }
+
+            // IMPORTANT: Clone the request. A request is a stream and
+            // can only be consumed once. Since we are consuming this
+            // once by cache and once by the browser for fetch, we need
+            // to clone the response.
+            var fetchRequest = event.request.clone();
+
+            return fetch(fetchRequest).then(
+                function (response) {
+                    // Check if we received a valid response
+                    if (!response || response.status !== 200 ) {
+                        console.log('response error' ,  response)
+                        return response;
+                    }
+
+                    // IMPORTANT: Clone the response. A response is a stream
+                    // and because we want the browser to consume the response
+                    // as well as the cache consuming the response, we need
+                    // to clone it so we have two streams.
+                    var responseToCache = response.clone();
+
+                    caches.open('vue-serviceworker')
+                        .then(function (cache) {
+                            console.log('push data to cache' ,  event.request)
+                            cache.put(event.request, responseToCache);
+                        });
+
+                    return response;
+                }
+            );
+        })
+    );
 });

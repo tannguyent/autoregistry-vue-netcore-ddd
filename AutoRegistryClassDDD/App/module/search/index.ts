@@ -41,7 +41,10 @@ export default class SearchResultModuleComponent extends Vue {
             .subscribe(
                 (value: string) => {
                     console.log('searc......')
-                    API.search(this.$httpManager.createRequest(), value, 1)
+                    //API.search(this.$httpManager.createRequest(), value, 1)
+                    let request = this.$httpManager.createRequest()
+                    request.get('https://jsonplaceholder.typicode.com/todos/1')
+                    .then(json => console.log(json))
                 },
                 err => { },
                 () => {
